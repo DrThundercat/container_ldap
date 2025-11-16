@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  ldap:
+    # image: docker.io/389ds/dirsrv:latest
+    context: .
+    build:
+      dockerfile: Dockerfile
+    commandd: [bash /opt/setup.sh]
+    container_name: my-389ds-2
+    volumes:
+      - dev_data2:/data
+    ports:
+      - "1389:3389"   # host 1389 -> container 3389 (LDAP)
+      - "1636:3636"   # host 1636 -> container 3636 (LDAPS)
+
+volumes:
+  dev_data2:
