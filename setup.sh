@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# NEW_PW='appleapple' expect << 'EOF'
+#     set new_pw $env(NEW_PW)
+#     spawn dsconf -D "cn=Directory Manager" localhost directory_manager password_change
+#     expect "Enter new directory manager password : "
+#     send "$new_pw\r"
+#     expect "CONFIRM - Enter new directory manager password : "
+#     send "$new_pw\r"
+#     expect eof
+# EOF
 
 dsconf localhost backend create --suffix "o=farmers" --be-name "farmers" 
 
@@ -17,7 +26,7 @@ if [[ ! -d /data/ldif/ous ]]; then
 
     cat >> /data/ldif/ous/farmers/base.ldif <<EOL
 dn: o=farmers
-objectClass: organizational
+objectClass: organization
 o: farmers
 EOL
     cat >> /data/ldif/ous/type_farmers/base.ldif <<EOL
@@ -66,11 +75,11 @@ ou: inactive
 EOL
 fi
 
-ldapadd -x -D "cn=Directory_Manager" -w "appleapple" -H ldap://localhost:3389 -f /data/ldif/ous/farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w "appleapple" -H ldap://localhost:3389 -f /data/ldif/ous/type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w "appleapple" -H ldap://localhost:3389 -f /data/ldif/ous/fruit_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w "appleapple" -H ldap://localhost:3389 -f /data/ldif/ous/vegetable_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w "appleapple" -H ldap://localhost:3389 -f /data/ldif/ous/mountain_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w "appleapple" -H ldap://localhost:3389 -f /data/ldif/ous/inactive_fruit_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w "appleapple" -H ldap://localhost:3389 -f /data/ldif/ous/inactive_vegetable_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w "appleapple" -H ldap://localhost:3389 -f /data/ldif/ous/inactive_mountain_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/farmers/base.ldif
+ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/type_farmers/base.ldif
+ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/fruit_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/vegetable_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/mountain_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_fruit_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_vegetable_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_mountain_type_farmers/base.ldif
