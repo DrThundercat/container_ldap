@@ -75,11 +75,11 @@ ou: inactive
 EOL
 fi
 
-ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/fruit_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/vegetable_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/mountain_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_fruit_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_vegetable_type_farmers/base.ldif
-ldapadd -x -D "cn=Directory_Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_mountain_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/type_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/fruit_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/vegetable_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/mountain_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_fruit_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_vegetable_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_mountain_type_farmers/base.ldif
