@@ -19,6 +19,8 @@ if [[ ! -d /data/ldif/ous ]]; then
     mkdir -p /data/ldif/ous/fruit_type_farmers
     mkdir -p /data/ldif/ous/vegetable_type_farmers
     mkdir -p /data/ldif/ous/mountain_type_farmers
+    mkdir -p /data/ldif/ous/inactive_farmers
+    mkdir -p /data/ldif/ous/inactive_type_farmers
     mkdir -p /data/ldif/ous/inactive_fruit_type_farmers
     mkdir -p /data/ldif/ous/inactive_vegetable_type_farmers
     mkdir -p /data/ldif/ous/inactive_mountain_type_farmers
@@ -52,6 +54,17 @@ objectClass: organizationalUnit
 ou: types
 ou: mountain
 EOL
+    cat >> /data/ldif/ous/inactive_farmers/base.ldif <<EOL
+dn: ou=inactive,o=farmers
+objectClass: organizationalUnit
+ou: inactive
+EOL
+    cat >> /data/ldif/ous/inactive_type_farmers/base.ldif <<EOL
+dn: ou=type,ou=inactive,o=farmers
+objectClass: organizationalUnit
+ou: inactive
+ou: type
+EOL
     cat >> /data/ldif/ous/inactive_fruit_type_farmers/base.ldif <<EOL
 dn: ou=fruit,ou=type,ou=inactive,o=farmers
 objectClass: organizationalUnit
@@ -80,6 +93,8 @@ ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/fruit_type_farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/vegetable_type_farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/mountain_type_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_farmers/base.ldif
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_type_farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_fruit_type_farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_vegetable_type_farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_mountain_type_farmers/base.ldif
