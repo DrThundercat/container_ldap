@@ -13,3 +13,18 @@ https://www.port389.org/docs/389ds/howto/howto-resetdirmgrpassword.html
 
 ## Notes
 - after each up from podman-compose 'up' dont forget to delete the images to make sure its doing fresh things
+
+### setup.sh suffixs
+- o=farmers
+- ou=type,o=farmers
+- ou=fruit,ou=type,o=farmers
+- ou=vegetable,ou=type,o=farmers
+- ou=mountain,ou=type,o=farmers
+- ou=inactive,o=farmers
+- ou=type,ou=inactive,o=farmers
+- ou=fruit,ou=type,ou=inactive,o=farmers
+- ou=vegetable,ou=type,ou=inactive,o=farmers
+- ou=mountain,ou=type,ou=inactive,o=farmers
+
+## setup.sh db's
+- farmers (o=farmers)
