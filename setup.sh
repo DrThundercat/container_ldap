@@ -10,10 +10,12 @@
 #     expect eof
 # EOF
 
-dsconf localhost backend create --suffix "o=farmers" --be-name "farmers" 
+dsconf localhost backend create --suffix "o=farmers" --be-name "farmers"
+dsconf localhost backend create --suffix "o=srv" --be-name "service_accounts" 
 
 if [[ ! -d /data/ldif/ous ]]; then
     mkdir -p /data/ldif/ous
+    mkdir -p /data/ldif/ous/srv
     mkdir -p /data/ldif/ous/farmers
     mkdir -p /data/ldif/ous/type_farmers
     mkdir -p /data/ldif/ous/fruit_type_farmers
@@ -25,7 +27,11 @@ if [[ ! -d /data/ldif/ous ]]; then
     mkdir -p /data/ldif/ous/inactive_vegetable_type_farmers
     mkdir -p /data/ldif/ous/inactive_mountain_type_farmers
 
-
+    cat >> /data/ldif/ous/srv/base.ldif <<EOL
+dn: o=srv
+objectClass: organization
+o: srv
+EOL
     cat >> /data/ldif/ous/farmers/base.ldif <<EOL
 dn: o=farmers
 objectClass: organization
@@ -88,6 +94,7 @@ ou: inactive
 EOL
 fi
 
+ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/srv/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/type_farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/fruit_type_farmers/base.ldif
