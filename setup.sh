@@ -105,3 +105,5 @@ ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_fruit_type_farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_vegetable_type_farmers/base.ldif
 ldapadd -x -D "cn=Directory Manager" -w appleapple -H ldap://localhost:3389 -f /data/ldif/ous/inactive_mountain_type_farmers/base.ldif
+
+microdnf -y install vim xz zsh 
